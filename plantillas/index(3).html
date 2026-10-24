@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mecánica Precisa | Multipage Neumorfismo oscuro</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<style>
+  :root{--bg:#2b2f38;--d:#1c1f26;--l:#3a3f4b;--am:#ffb02e}
+  body{font-family:'Manrope',sans-serif;background:var(--bg);color:#cfd4df}
+  .neu{background:var(--bg);border-radius:1.4rem;box-shadow:8px 8px 18px var(--d),-8px -8px 18px var(--l)}
+  .neu-sm{background:var(--bg);border-radius:1rem;box-shadow:5px 5px 10px var(--d),-5px -5px 10px var(--l)}
+  .neu-in{background:var(--bg);border-radius:1rem;box-shadow:inset 5px 5px 10px var(--d),inset -5px -5px 10px var(--l)}
+  .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.8rem 1.5rem;border-radius:1rem;font-weight:700;background:var(--bg);color:var(--am);box-shadow:6px 6px 12px var(--d),-6px -6px 12px var(--l);transition:.15s}
+  .btn:active{box-shadow:inset 4px 4px 8px var(--d),inset -4px -4px 8px var(--l)}
+  .btn-am{background:var(--am);color:#2b2f38}
+  .navlink{padding:.55rem 1rem;border-radius:.9rem;font-weight:600;color:#cfd4df}
+  .navlink:hover{color:var(--am)}
+  .navlink.active{color:var(--am);box-shadow:inset 4px 4px 8px var(--d),inset -4px -4px 8px var(--l)}
+  input,textarea,select{width:100%;background:var(--bg);color:#fff;border-radius:1rem;padding:.9rem 1.1rem;outline:none;box-shadow:inset 5px 5px 10px var(--d),inset -5px -5px 10px var(--l)}
+  input:focus,textarea:focus,select:focus{box-shadow:inset 5px 5px 10px var(--d),inset -5px -5px 10px var(--l),0 0 0 2px rgba(255,176,46,.5)}
+  ::placeholder{color:#8a91a1}
+  .hero-img{min-height:340px;border-radius:2rem;background-size:cover;background-position:center;box-shadow:10px 10px 22px var(--d),-10px -10px 22px var(--l)}
+  .ring{width:72px;height:72px;border-radius:50%;display:grid;place-items:center;font-size:1.7rem;color:var(--am)}
+  .page{display:none}.page.show{display:block}
+</style>
+</head>
+<body>
+
+<header class="sticky top-0 z-40 px-4 py-4" style="background:var(--bg)">
+  <nav class="max-w-6xl mx-auto neu px-5 py-3 flex items-center justify-between">
+    <a href="#inicio" class="font-extrabold text-xl text-white"><i class="bi bi-wrench-adjustable-circle-fill" style="color:var(--am)"></i> Mecánica Precisa</a>
+    <ul class="hidden md:flex gap-2" id="deskNav">
+      <li><a class="navlink" href="#inicio">Inicio</a></li>
+      <li><a class="navlink" href="#servicios">Servicios</a></li>
+      <li><a class="navlink" href="#nosotros">Nosotros</a></li>
+      <li><a class="navlink" href="#contacto">Contacto</a></li>
+    </ul>
+    <button id="burger" class="md:hidden neu-sm w-11 h-11 grid place-items-center text-2xl text-white" aria-label="Abrir menú" aria-expanded="false"><i class="bi bi-list"></i></button>
+  </nav>
+  <div id="mobile" class="hidden md:hidden max-w-6xl mx-auto mt-3 neu p-4">
+    <ul class="grid gap-2 text-center">
+      <li><a class="navlink block" href="#inicio">Inicio</a></li>
+      <li><a class="navlink block" href="#servicios">Servicios</a></li>
+      <li><a class="navlink block" href="#nosotros">Nosotros</a></li>
+      <li><a class="navlink block" href="#contacto">Contacto</a></li>
+    </ul>
+  </div>
+</header>
+
+<main class="max-w-6xl mx-auto px-4 py-8">
+
+<!-- INICIO -->
+<section class="page" data-page="inicio">
+  <div class="grid lg:grid-cols-2 gap-10 items-center">
+    <div>
+      <p class="neu-sm inline-block px-4 py-2 text-sm font-bold" style="color:var(--am)">Taller automotriz multimarca</p>
+      <h1 class="text-4xl sm:text-5xl font-extrabold text-white mt-5 leading-tight">Cada tornillo en su sitio, cada auto en su mejor forma.</h1>
+      <p class="mt-4 text-slate-400 max-w-lg">Revisión, mantenimiento y reparación con herramientas modernas y explicaciones claras.</p>
+      <div class="flex flex-wrap gap-4 mt-8"><a href="#contacto" class="btn btn-am">Pedir cotización</a><a href="#servicios" class="btn">Servicios</a></div>
+    </div>
+    <div class="hero-img" style="background-image:url('https://images.unsplash.com/photo-1530046339160-ce3e530c7d2f?auto=format&fit=crop&w=1200&q=65'),linear-gradient(135deg,#3a3f4b,#1c1f26)"></div>
+  </div>
+  <div class="grid sm:grid-cols-3 gap-6 mt-14">
+    <div class="neu p-6 text-center"><div class="ring neu-in mx-auto mb-3"><i class="bi bi-shield-check"></i></div><h3 class="font-bold text-white">12 meses de garantía</h3><p class="text-sm text-slate-400 mt-1">En mano de obra y repuestos.</p></div>
+    <div class="neu p-6 text-center"><div class="ring neu-in mx-auto mb-3"><i class="bi bi-cpu"></i></div><h3 class="font-bold text-white">Escáner profesional</h3><p class="text-sm text-slate-400 mt-1">Diagnóstico exacto de fallas.</p></div>
+    <div class="neu p-6 text-center"><div class="ring neu-in mx-auto mb-3"><i class="bi bi-clock-history"></i></div><h3 class="font-bold text-white">Entrega puntual</h3><p class="text-sm text-slate-400 mt-1">Te avisamos en cada etapa.</p></div>
+  </div>
+</section>
+
+<!-- SERVICIOS -->
+<section class="page" data-page="servicios">
+  <h1 class="text-3xl sm:text-4xl font-extrabold text-white">Servicios</h1>
+  <p class="text-slate-400 mt-2">Mecánica general y especializada.</p>
+  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+    <article class="neu p-6"><div class="ring neu-in mb-4"><i class="bi bi-droplet-fill"></i></div><h2 class="font-bold text-white text-lg">Mantenimiento preventivo</h2><p class="text-sm text-slate-400 mt-2">Aceite, filtros, bujías y revisión de 30 puntos.</p></article>
+    <article class="neu p-6"><div class="ring neu-in mb-4"><i class="bi bi-disc-fill"></i></div><h2 class="font-bold text-white text-lg">Frenos</h2><p class="text-sm text-slate-400 mt-2">Pastillas, discos, tambores y líquido.</p></article>
+    <article class="neu p-6"><div class="ring neu-in mb-4"><i class="bi bi-car-front-fill"></i></div><h2 class="font-bold text-white text-lg">Suspensión</h2><p class="text-sm text-slate-400 mt-2">Amortiguadores, resortes y alineación.</p></article>
+    <article class="neu p-6"><div class="ring neu-in mb-4"><i class="bi bi-gear-fill"></i></div><h2 class="font-bold text-white text-lg">Motor y transmisión</h2><p class="text-sm text-slate-400 mt-2">Reparación, embrague y cajas manuales o automáticas.</p></article>
+    <article class="neu p-6"><div class="ring neu-in mb-4"><i class="bi bi-snow"></i></div><h2 class="font-bold text-white text-lg">Aire acondicionado</h2><p class="text-sm text-slate-400 mt-2">Carga de gas, compresor y filtros.</p></article>
+    <article class="neu p-6"><div class="ring neu-in mb-4"><i class="bi bi-lightning-charge-fill"></i></div><h2 class="font-bold text-white text-lg">Electricidad</h2><p class="text-sm text-slate-400 mt-2">Baterías, alternador, arranque y luces.</p></article>
+  </div>
+</section>
+
+<!-- NOSOTROS -->
+<section class="page" data-page="nosotros">
+  <div class="grid lg:grid-cols-2 gap-10 items-center">
+    <div class="hero-img" style="background-image:url('https://images.unsplash.com/photo-1487754180451-c456f719a1fc?auto=format&fit=crop&w=1200&q=65'),linear-gradient(135deg,#1c1f26,#3a3f4b)"></div>
+    <div>
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-white">Un taller hecho con paciencia</h1>
+      <p class="mt-4 text-slate-400">Somos un equipo de técnicos con más de 15 años de experiencia. Creemos que un cliente informado toma mejores decisiones, por eso explicamos cada reparación antes de hacerla.</p>
+      <ul class="mt-6 grid gap-3">
+        <li class="neu-sm px-4 py-3 flex items-center gap-3"><i class="bi bi-check-circle-fill" style="color:var(--am)"></i> Presupuesto por escrito</li>
+        <li class="neu-sm px-4 py-3 flex items-center gap-3"><i class="bi bi-check-circle-fill" style="color:var(--am)"></i> Repuestos con garantía</li>
+        <li class="neu-sm px-4 py-3 flex items-center gap-3"><i class="bi bi-check-circle-fill" style="color:var(--am)"></i> Piezas cambiadas devueltas al cliente</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section class="page" data-page="contacto">
+  <div class="grid lg:grid-cols-5 gap-8">
+    <div class="lg:col-span-2">
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-white">Contacto</h1>
+      <div class="neu p-6 mt-6 grid gap-4 text-sm">
+        <p><i class="bi bi-geo-alt-fill mr-2" style="color:var(--am)"></i>Boulevard Industrial 90, Ciudad</p>
+        <p><i class="bi bi-telephone-fill mr-2" style="color:var(--am)"></i>+000 0000 0000</p>
+        <p><i class="bi bi-envelope-fill mr-2" style="color:var(--am)"></i>info@mecanicaprecisa.com</p>
+        <p><i class="bi bi-clock-fill mr-2" style="color:var(--am)"></i>Lun a sáb, 8:00 – 18:00</p>
+      </div>
+    </div>
+    <form class="lg:col-span-3 neu p-6 grid gap-4" onsubmit="event.preventDefault();alert('Gracias, te responderemos pronto.')">
+      <div class="grid sm:grid-cols-2 gap-4"><input placeholder="Nombre" required><input type="tel" placeholder="Teléfono" required></div>
+      <input placeholder="Marca, modelo y año del vehículo">
+      <textarea rows="4" placeholder="¿Qué le pasa a tu auto?"></textarea>
+      <button class="btn btn-am justify-center">Enviar mensaje</button>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer class="px-4 py-10">
+  <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-400">
+    <p>© 2026 Mecánica Precisa</p>
+    <div class="flex gap-3 text-xl text-white">
+      <a href="#" aria-label="Facebook" class="neu-sm w-11 h-11 grid place-items-center hover:text-amber-400"><i class="bi bi-facebook"></i></a>
+      <a href="#" aria-label="Instagram" class="neu-sm w-11 h-11 grid place-items-center hover:text-amber-400"><i class="bi bi-instagram"></i></a>
+      <a href="#" aria-label="YouTube" class="neu-sm w-11 h-11 grid place-items-center hover:text-amber-400"><i class="bi bi-youtube"></i></a>
+      <a href="#" aria-label="WhatsApp" class="neu-sm w-11 h-11 grid place-items-center hover:text-amber-400"><i class="bi bi-whatsapp"></i></a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const pages=[...document.querySelectorAll('[data-page]')],links=[...document.querySelectorAll('.navlink')],mob=document.getElementById('mobile'),bur=document.getElementById('burger');
+  function route(){
+    let h=(location.hash||'#inicio').slice(1); if(!pages.some(p=>p.dataset.page===h)) h='inicio';
+    pages.forEach(p=>p.classList.toggle('show',p.dataset.page===h));
+    links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+h));
+    mob.classList.add('hidden');bur.setAttribute('aria-expanded','false');bur.innerHTML='<i class="bi bi-list"></i>';
+    window.scrollTo(0,0);
+  }
+  bur.addEventListener('click',()=>{const o=mob.classList.toggle('hidden');bur.setAttribute('aria-expanded',String(!o));bur.innerHTML=o?'<i class="bi bi-list"></i>':'<i class="bi bi-x-lg"></i>'});
+  addEventListener('hashchange',route);route();
+</script>
+</body>
+</html>

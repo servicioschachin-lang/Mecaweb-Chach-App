@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Norte Taller | Multipage Minimalismo</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{--ice:#f3f6fa;--ink:#0e1a2b;--ac:#2347ff;--mut:#5d6b80;--ln:#dde4ee}
+  body{font-family:'Red Hat Display',sans-serif;background:var(--ice);color:var(--ink)}
+  h1,h2,h3{font-weight:900;letter-spacing:-.02em}
+  h1{font-size:clamp(2.6rem,7vw,5rem);line-height:1}
+  .navbar{background:rgba(243,246,250,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--ln)}
+  .navbar-brand{font-weight:900;color:var(--ink)!important;letter-spacing:-.03em}
+  .navbar-brand i{color:var(--ac)}
+  .nav-link{color:var(--mut)!important;font-weight:500;position:relative}
+  .nav-link:hover{color:var(--ink)!important}
+  .nav-link.active{color:var(--ink)!important}
+  @media(min-width:992px){.nav-link.active::after{content:"";position:absolute;left:.5rem;right:.5rem;bottom:-2px;height:2px;background:var(--ac)}}
+  .navbar-toggler{border:0}.navbar-toggler:focus{box-shadow:0 0 0 2px var(--ac)}
+  .btn-ac{background:var(--ac);color:#fff;border:0;border-radius:.5rem;padding:.8rem 1.6rem;font-weight:700}
+  .btn-ac:hover{background:#1632c9;color:#fff}
+  .btn-out{border:1px solid var(--ink);border-radius:.5rem;padding:.8rem 1.6rem;font-weight:700;color:var(--ink)}
+  .btn-out:hover{background:var(--ink);color:#fff}
+  .card-m{background:#fff;border:1px solid var(--ln);border-radius:.75rem}
+  .muted{color:var(--mut)}
+  .photo{background-size:cover;background-position:center;background-color:#cfd8e6;border-radius:.75rem;min-height:340px}
+  .full-photo{position:relative;color:#fff;background:linear-gradient(rgba(14,26,43,.72),rgba(14,26,43,.72)),url('https://images.unsplash.com/photo-1530046339160-ce3e530c7d2f?auto=format&fit=crop&w=1800&q=60') center/cover #0e1a2b;border-radius:.75rem}
+  .form-control,.form-select{border:1px solid var(--ln);border-radius:.5rem;padding:.8rem 1rem;background:#fff}
+  .form-control:focus,.form-select:focus{border-color:var(--ac);box-shadow:0 0 0 3px rgba(35,71,255,.15)}
+  .row-s{border-bottom:1px solid var(--ln);padding:1.1rem 0}
+  [data-page]{padding:4rem 0 5rem}
+  .soc a{color:var(--ink);font-size:1.25rem;margin-right:1.1rem}.soc a:hover{color:var(--ac)}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--ac);outline-offset:2px}
+</style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg sticky-top py-3">
+  <div class="container">
+    <a class="navbar-brand" href="#inicio"><i class="bi bi-compass"></i> Norte Taller</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Abrir menú"><i class="bi bi-list fs-2"></i></button>
+    <div class="collapse navbar-collapse" id="menu">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3 pt-3 pt-lg-0">
+        <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link" href="#servicios">Servicios</a></li>
+        <li class="nav-item"><a class="nav-link" href="#planes">Planes</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+        <li class="nav-item mt-2 mt-lg-0"><a class="btn btn-ac btn-sm" href="#contacto">Reservar</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<main>
+<section data-page="inicio">
+  <div class="container">
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-6">
+        <h1>Servicio automotriz sin ruido.</h1>
+        <p class="muted fs-5 mt-4">Diagnóstico, mantenimiento y reparaciones para autos de uso diario. Claro, puntual y bien hecho.</p>
+        <div class="d-flex gap-3 flex-wrap mt-4"><a href="#contacto" class="btn btn-ac">Reservar cita</a><a href="#servicios" class="btn btn-out">Servicios</a></div>
+      </div>
+      <div class="col-lg-6"><div class="photo" style="background-image:url('https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=1200&q=65')"></div></div>
+    </div>
+    <div class="row g-4 mt-5 pt-3">
+      <div class="col-md-4"><h2 class="h5">Presupuesto claro</h2><p class="muted mb-0">Sabes el precio antes de empezar.</p></div>
+      <div class="col-md-4"><h2 class="h5">Tiempos reales</h2><p class="muted mb-0">Te avisamos si algo cambia.</p></div>
+      <div class="col-md-4"><h2 class="h5">Garantía por escrito</h2><p class="muted mb-0">Seis meses en mano de obra.</p></div>
+    </div>
+  </div>
+</section>
+
+<section data-page="servicios">
+  <div class="container">
+    <h1 class="mb-4" style="font-size:clamp(2.2rem,5vw,3.5rem)">Servicios</h1>
+    <div class="card-m px-4">
+      <div class="row-s d-flex justify-content-between gap-3"><div><h2 class="h5 mb-1">Cambio de aceite y filtros</h2><span class="muted">Sintético, semisintético o mineral.</span></div><i class="bi bi-droplet fs-4" style="color:var(--ac)"></i></div>
+      <div class="row-s d-flex justify-content-between gap-3"><div><h2 class="h5 mb-1">Frenos</h2><span class="muted">Pastillas, discos, líquido y revisión.</span></div><i class="bi bi-disc fs-4" style="color:var(--ac)"></i></div>
+      <div class="row-s d-flex justify-content-between gap-3"><div><h2 class="h5 mb-1">Suspensión y alineación</h2><span class="muted">Amortiguadores, rótulas y balanceo.</span></div><i class="bi bi-car-front fs-4" style="color:var(--ac)"></i></div>
+      <div class="row-s d-flex justify-content-between gap-3"><div><h2 class="h5 mb-1">Diagnóstico electrónico</h2><span class="muted">Escáner y revisión de sensores.</span></div><i class="bi bi-cpu fs-4" style="color:var(--ac)"></i></div>
+      <div class="row-s d-flex justify-content-between gap-3"><div><h2 class="h5 mb-1">Aire acondicionado</h2><span class="muted">Carga, fugas y limpieza.</span></div><i class="bi bi-snow fs-4" style="color:var(--ac)"></i></div>
+      <div class="d-flex justify-content-between gap-3 py-3"><div><h2 class="h5 mb-1">Batería y sistema eléctrico</h2><span class="muted">Pruebas de carga y reemplazo.</span></div><i class="bi bi-battery-charging fs-4" style="color:var(--ac)"></i></div>
+    </div>
+  </div>
+</section>
+
+<section data-page="planes">
+  <div class="container">
+    <h1 class="mb-2" style="font-size:clamp(2.2rem,5vw,3.5rem)">Planes</h1>
+    <p class="muted mb-4">Precios de ejemplo, repuestos no incluidos.</p>
+    <div class="row g-4">
+      <div class="col-md-4"><div class="card-m p-4 h-100"><h2 class="h5">Esencial</h2><p class="display-5 fw-bold my-3">$40</p><ul class="muted list-unstyled"><li class="mb-2"><i class="bi bi-check2"></i> Aceite y filtro</li><li class="mb-2"><i class="bi bi-check2"></i> Revisión de niveles</li><li><i class="bi bi-check2"></i> Revisión de llantas</li></ul><a href="#contacto" class="btn btn-out w-100 mt-3">Elegir</a></div></div>
+      <div class="col-md-4"><div class="card-m p-4 h-100" style="border-color:var(--ac)"><h2 class="h5">Completo</h2><p class="display-5 fw-bold my-3">$95</p><ul class="muted list-unstyled"><li class="mb-2"><i class="bi bi-check2"></i> Todo lo de Esencial</li><li class="mb-2"><i class="bi bi-check2"></i> Frenos y suspensión</li><li><i class="bi bi-check2"></i> Diagnóstico electrónico</li></ul><a href="#contacto" class="btn btn-ac w-100 mt-3">Elegir</a></div></div>
+      <div class="col-md-4"><div class="card-m p-4 h-100"><h2 class="h5">Viaje</h2><p class="display-5 fw-bold my-3">$150</p><ul class="muted list-unstyled"><li class="mb-2"><i class="bi bi-check2"></i> Todo lo de Completo</li><li class="mb-2"><i class="bi bi-check2"></i> Aire acondicionado</li><li><i class="bi bi-check2"></i> Batería y luces</li></ul><a href="#contacto" class="btn btn-out w-100 mt-3">Elegir</a></div></div>
+    </div>
+    <div class="full-photo p-5 mt-5 text-center">
+      <h2 class="h3">¿No sabes qué necesita tu auto?</h2>
+      <p class="opacity-75">Trae tu auto y lo revisamos sin compromiso.</p>
+      <a href="#contacto" class="btn btn-light fw-bold px-4">Pedir revisión</a>
+    </div>
+  </div>
+</section>
+
+<section data-page="contacto">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-5">
+        <h1 style="font-size:clamp(2.2rem,5vw,3.5rem)">Contacto</h1>
+        <p class="muted mt-3">Av. Norte 250, Ciudad<br>Lunes a viernes, 8:00 a 18:00<br>Sábados, 8:00 a 13:00</p>
+        <p class="mb-4">+000 0000 0000<br>hola@nortetaller.com</p>
+        <div class="soc">
+          <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          <a href="#" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-7">
+        <form class="card-m p-4" onsubmit="event.preventDefault();alert('Gracias, te contactaremos pronto.')">
+          <div class="row g-3">
+            <div class="col-md-6"><label class="form-label small muted" for="n">Nombre</label><input id="n" class="form-control" required></div>
+            <div class="col-md-6"><label class="form-label small muted" for="t">Teléfono</label><input id="t" type="tel" class="form-control" required></div>
+            <div class="col-12"><label class="form-label small muted" for="s">Servicio</label><select id="s" class="form-select"><option>Plan Esencial</option><option>Plan Completo</option><option>Plan Viaje</option><option>Otro</option></select></div>
+            <div class="col-12"><label class="form-label small muted" for="m">Mensaje</label><textarea id="m" class="form-control" rows="4"></textarea></div>
+            <div class="col-12"><button class="btn btn-ac">Enviar solicitud</button></div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="py-4 border-top" style="border-color:var(--ln)!important"><div class="container small muted">© 2026 Norte Taller</div></footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  const pages=[...document.querySelectorAll('[data-page]')],links=[...document.querySelectorAll('.nav-link')];
+  function route(){
+    let h=(location.hash||'#inicio').slice(1); if(!pages.some(p=>p.dataset.page===h)) h='inicio';
+    pages.forEach(p=>p.classList.toggle('d-none',p.dataset.page!==h));
+    links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+h));
+    const m=document.getElementById('menu'); if(m.classList.contains('show')) bootstrap.Collapse.getOrCreateInstance(m).hide();
+    window.scrollTo(0,0);
+  }
+  addEventListener('hashchange',route); route();
+</script>
+</body>
+</html>

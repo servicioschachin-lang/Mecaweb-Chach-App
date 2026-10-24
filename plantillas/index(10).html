@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FIERRO &amp; ACEITE | Multipage Brutalismo</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{--lime:#b6ff00;--pink:#ff2bd6;--blue:#2a2aff;--paper:#f1efff}
+  body{font-family:'Courier Prime',monospace;background:var(--paper);color:#000;font-size:1.05rem}
+  h1,h2,h3,h4,.navbar-brand{font-family:'Bebas Neue',sans-serif;font-weight:400;letter-spacing:.02em}
+  h1{font-size:clamp(3.5rem,11vw,8rem);line-height:.9}
+  h2{font-size:clamp(2.4rem,6vw,4rem);line-height:.95}
+  .bd{border:3px solid #000}
+  .hs{box-shadow:7px 7px 0 #000}
+  .navbar{background:var(--lime);border-bottom:3px solid #000}
+  .navbar-brand{font-size:2rem;color:#000!important}
+  .nav-link{color:#000!important;font-weight:700;text-transform:uppercase;border:3px solid transparent;margin:.1rem}
+  .nav-link:hover,.nav-link.active{background:#000;color:var(--lime)!important}
+  .navbar-toggler{border:3px solid #000;border-radius:0;background:#fff}
+  .navbar-toggler:focus{box-shadow:4px 4px 0 #000}
+  .btn-b{border:3px solid #000;border-radius:0;font-weight:700;text-transform:uppercase;padding:.75rem 1.6rem;box-shadow:6px 6px 0 #000;transition:.1s;background:var(--pink);color:#000}
+  .btn-b:hover{transform:translate(3px,3px);box-shadow:3px 3px 0 #000;color:#000}
+  .btn-lime{background:var(--lime)}.btn-wh{background:#fff}.btn-bl{background:var(--blue);color:#fff}.btn-bl:hover{color:#fff}
+  .tag{display:inline-block;background:#000;color:var(--lime);padding:.15rem .7rem;font-weight:700}
+  .img-blk{background-size:cover;background-position:center;min-height:300px;filter:contrast(1.25) saturate(1.2)}
+  .form-control,.form-select{border:3px solid #000;border-radius:0;padding:.8rem}
+  .form-control:focus,.form-select:focus{background:var(--lime);box-shadow:5px 5px 0 #000;border-color:#000}
+  .tilt{transform:rotate(-1.5deg)}.tilt2{transform:rotate(1.2deg)}
+  [data-page]{padding:3rem 0 4rem}
+  .soc a{display:inline-grid;place-items:center;width:48px;height:48px;border:3px solid #000;background:#fff;color:#000;font-size:1.25rem;text-decoration:none;margin-right:.5rem;box-shadow:4px 4px 0 #000}
+  .soc a:hover{background:var(--pink)}
+  a:focus-visible,button:focus-visible{outline:4px solid var(--blue);outline-offset:2px}
+</style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="#inicio">FIERRO &amp; ACEITE</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Abrir menú"><i class="bi bi-list fs-2 text-dark"></i></button>
+    <div class="collapse navbar-collapse" id="menu">
+      <ul class="navbar-nav ms-auto py-2 py-lg-0">
+        <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link" href="#autos">Autos</a></li>
+        <li class="nav-item"><a class="nav-link" href="#motos">Motos</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<main>
+<section data-page="inicio">
+  <div class="container">
+    <span class="tag">AUTOS + MOTOS + LO QUE SEA</span>
+    <h1 class="mt-3">SI TIENE<br><span style="background:var(--pink);padding:0 .2em" class="bd">MOTOR</span>,<br>LO ARREGLAMOS.</h1>
+    <div class="row g-4 mt-4 align-items-stretch">
+      <div class="col-lg-5">
+        <div class="bd hs bg-white p-4 h-100">
+          <p class="fw-bold mb-3">Taller mixto para carros, motos, camionetas y cuatrimotos. Sin adornos, con herramientas de verdad.</p>
+          <a href="#contacto" class="btn btn-b">Pedir turno</a>
+          <a href="#autos" class="btn btn-b btn-lime ms-2 mt-2 mt-sm-0">Ver servicios</a>
+        </div>
+      </div>
+      <div class="col-lg-7"><div class="bd hs img-blk h-100" style="background-image:url('https://images.unsplash.com/photo-1625047509248-ec889cbff17f?auto=format&fit=crop&w=1400&q=65'),linear-gradient(135deg,#2a2aff,#ff2bd6)"></div></div>
+    </div>
+    <div class="row g-4 mt-2">
+      <div class="col-md-4"><div class="bd hs p-4 tilt" style="background:var(--lime)"><h3 class="display-6 mb-1">+20 AÑOS</h3><p class="mb-0 fw-bold">Metiendo mano en motores.</p></div></div>
+      <div class="col-md-4"><div class="bd hs p-4 bg-white"><h3 class="display-6 mb-1">PRECIO FIJO</h3><p class="mb-0 fw-bold">Lo que se acuerda es lo que se paga.</p></div></div>
+      <div class="col-md-4"><div class="bd hs p-4 tilt2" style="background:var(--blue);color:#fff"><h3 class="display-6 mb-1">GARANTÍA</h3><p class="mb-0 fw-bold">Por escrito, en cada trabajo.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section data-page="autos">
+  <div class="container">
+    <span class="tag">CARROS Y CAMIONETAS</span>
+    <h2 class="mt-3">MECÁNICA AUTOMOTRIZ</h2>
+    <div class="row g-4 mt-2">
+      <div class="col-md-6 col-lg-4"><div class="bd hs bg-white p-4 h-100"><i class="bi bi-gear-wide-connected fs-1"></i><h3 class="h2 mt-2">MOTOR</h3><p class="mb-0">Reparación general, empaques, correas y afinación.</p></div></div>
+      <div class="col-md-6 col-lg-4"><div class="bd hs p-4 h-100" style="background:var(--lime)"><i class="bi bi-disc-fill fs-1"></i><h3 class="h2 mt-2">FRENOS</h3><p class="mb-0">Pastillas, discos, tambores y líquido.</p></div></div>
+      <div class="col-md-6 col-lg-4"><div class="bd hs bg-white p-4 h-100"><i class="bi bi-car-front-fill fs-1"></i><h3 class="h2 mt-2">SUSPENSIÓN</h3><p class="mb-0">Amortiguadores, rótulas, bujes y alineación.</p></div></div>
+      <div class="col-md-6 col-lg-4"><div class="bd hs p-4 h-100" style="background:var(--pink)"><i class="bi bi-cpu-fill fs-1"></i><h3 class="h2 mt-2">DIAGNÓSTICO</h3><p class="mb-0">Escáner y lectura de fallas electrónicas.</p></div></div>
+      <div class="col-md-6 col-lg-4"><div class="bd hs bg-white p-4 h-100"><i class="bi bi-snow fs-1"></i><h3 class="h2 mt-2">AIRE A/C</h3><p class="mb-0">Carga de gas, compresor y condensador.</p></div></div>
+      <div class="col-md-6 col-lg-4"><div class="bd hs p-4 h-100" style="background:var(--blue);color:#fff"><i class="bi bi-droplet-fill fs-1"></i><h3 class="h2 mt-2">ACEITE</h3><p class="mb-0">Cambio de aceite y filtros en 40 minutos.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section data-page="motos">
+  <div class="container">
+    <span class="tag">MOTOS Y CUATRIMOTOS</span>
+    <h2 class="mt-3">MECÁNICA DE MOTOS</h2>
+    <div class="row g-4 mt-2 align-items-stretch">
+      <div class="col-lg-5"><div class="bd hs img-blk h-100" style="background-image:url('https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=1000&q=65'),linear-gradient(135deg,#b6ff00,#2a2aff)"></div></div>
+      <div class="col-lg-7">
+        <div class="bd hs bg-white">
+          <ul class="list-unstyled mb-0 fw-bold">
+            <li class="d-flex justify-content-between p-3 border-bottom border-3 border-dark"><span>Cambio de aceite</span><span>desde $15</span></li>
+            <li class="d-flex justify-content-between p-3 border-bottom border-3 border-dark" style="background:var(--lime)"><span>Kit de arrastre</span><span>desde $55</span></li>
+            <li class="d-flex justify-content-between p-3 border-bottom border-3 border-dark"><span>Frenos</span><span>desde $20</span></li>
+            <li class="d-flex justify-content-between p-3 border-bottom border-3 border-dark" style="background:var(--pink)"><span>Sistema eléctrico</span><span>desde $25</span></li>
+            <li class="d-flex justify-content-between p-3"><span>Afinación completa</span><span>desde $40</span></li>
+          </ul>
+        </div>
+        <p class="small mt-3 fw-bold">Precios de ejemplo. Repuestos aparte.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-page="contacto">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-5">
+        <h2>VENÍ AL TALLER</h2>
+        <div class="bd hs bg-white p-4 mt-3 fw-bold">
+          <p class="mb-2"><i class="bi bi-geo-alt-fill"></i> Calle Hierro 404, Ciudad</p>
+          <p class="mb-2"><i class="bi bi-telephone-fill"></i> +000 0000 0000</p>
+          <p class="mb-2"><i class="bi bi-envelope-fill"></i> taller@fierroyaceite.com</p>
+          <p class="mb-0"><i class="bi bi-clock-fill"></i> Lun–sáb 7:30–18:00</p>
+        </div>
+        <div class="soc mt-4">
+          <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+          <a href="#" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-7">
+        <form class="bd hs p-4" style="background:var(--lime)" onsubmit="event.preventDefault();alert('Recibido. Te escribimos.')">
+          <div class="row g-3">
+            <div class="col-md-6"><input class="form-control" placeholder="Nombre" required></div>
+            <div class="col-md-6"><input class="form-control" type="tel" placeholder="Teléfono" required></div>
+            <div class="col-12"><select class="form-select"><option>Auto o camioneta</option><option>Moto</option><option>Cuatrimoto</option><option>Otro</option></select></div>
+            <div class="col-12"><textarea class="form-control" rows="4" placeholder="¿Qué le pasa?"></textarea></div>
+            <div class="col-12"><button class="btn btn-b">Enviar</button></div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="bg-black text-white py-3 text-center border-top border-3 border-dark"><small>© 2026 FIERRO &amp; ACEITE — TALLER MIXTO</small></footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  const pages=[...document.querySelectorAll('[data-page]')],links=[...document.querySelectorAll('.nav-link')];
+  function route(){
+    let h=(location.hash||'#inicio').slice(1); if(!pages.some(p=>p.dataset.page===h)) h='inicio';
+    pages.forEach(p=>p.classList.toggle('d-none',p.dataset.page!==h));
+    links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+h));
+    const m=document.getElementById('menu'); if(m.classList.contains('show')) bootstrap.Collapse.getOrCreateInstance(m).hide();
+    window.scrollTo(0,0);
+  }
+  addEventListener('hashchange',route); route();
+</script>
+</body>
+</html>

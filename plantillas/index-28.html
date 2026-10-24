@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Taller Torque · Mecánica automotriz</title>
+<meta name="description" content="Taller mecánico: diagnóstico, mantenimiento, frenos, suspensión y motor con presupuesto antes de reparar.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#DEDFE1;
+  --tile:#F3F3F4;
+  --dark:#27292D;
+  --ink:#1B1C1F;
+  --muted:#54575E;
+  --line:rgba(27,28,31,.10);
+  --accent:#C93F14;
+  --gap:14px;
+  --r:26px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Barlow",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;font-size:1.0625rem}
+a{color:inherit}
+h1,h2,h3{font-family:"Barlow Condensed",sans-serif;font-weight:700;line-height:1.02;letter-spacing:.005em}
+h1{font-size:clamp(2.8rem,6.4vw,5.2rem)}
+h2{font-size:clamp(1.9rem,3.6vw,2.8rem)}
+h3{font-size:1.55rem;line-height:1.1}
+p{color:var(--muted);max-width:56ch}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:10px}
+.skip{position:absolute;left:-999px;top:10px;background:var(--ink);color:#fff;padding:.6rem 1rem;border-radius:10px;z-index:30}
+.skip:focus{left:10px}
+.wrap{width:min(1180px,100% - 2rem);margin-inline:auto}
+
+/* Header */
+header{position:sticky;top:0;z-index:20;background:var(--bg);padding:.9rem 0}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;position:relative}
+.brand{display:flex;align-items:center;gap:.65rem;text-decoration:none;font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:1.6rem}
+.brand svg{width:34px;height:34px;color:var(--accent)}
+#menu ul{list-style:none;display:flex;gap:.4rem;align-items:center}
+#menu a{display:block;text-decoration:none;font-weight:600;padding:.55rem 1rem;border-radius:99px}
+#menu a:hover{background:var(--tile)}
+#menu a[aria-current="page"]{background:var(--dark);color:#fff}
+#menu a.cta{background:var(--accent);color:#fff}
+#menu a.cta[aria-current="page"]{background:var(--accent);box-shadow:0 0 0 3px var(--bg),0 0 0 5px var(--ink)}
+.burger{display:none;width:46px;height:46px;border-radius:14px;border:0;background:var(--tile);cursor:pointer;place-items:center}
+.burger span,.burger span::before,.burger span::after{display:block;width:20px;height:2px;background:var(--ink);border-radius:2px;position:relative;transition:transform .25s,background .25s}
+.burger span::before,.burger span::after{content:"";position:absolute;left:0}
+.burger span::before{top:-6px}
+.burger span::after{top:6px}
+.burger[aria-expanded="true"] span{background:transparent}
+.burger[aria-expanded="true"] span::before{transform:translateY(6px) rotate(45deg)}
+.burger[aria-expanded="true"] span::after{transform:translateY(-6px) rotate(-45deg)}
+
+/* Pages & bento */
+.page{display:none;padding:.6rem 0 3rem}
+.page.active{display:block}
+.page h1:focus{outline:none}
+.bento{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--gap)}
+.bento + .bento{margin-top:var(--gap)}
+.tile{background:var(--tile);border-radius:var(--r);padding:1.8rem;border:1px solid var(--line);display:flex;flex-direction:column;gap:.9rem;min-width:0}
+.tile.dark{background:var(--dark);color:#F1F1F2;border-color:transparent}
+.tile.dark p{color:#B9BBC1}
+.tile.accent{background:var(--accent);color:#fff;border-color:transparent}
+.tile.accent p{color:#FFE3D8}
+.tile.flat{background:transparent;border-style:dashed}
+.s3{grid-column:span 3}.s4{grid-column:span 4}.s5{grid-column:span 5}.s6{grid-column:span 6}
+.s7{grid-column:span 7}.s8{grid-column:span 8}.s12{grid-column:span 12}
+.r2{grid-row:span 2}
+.push{margin-top:auto}
+
+.btn{display:inline-block;text-decoration:none;font:inherit;font-weight:600;cursor:pointer;border:0;padding:.9rem 1.5rem;border-radius:99px;background:var(--dark);color:#fff;transition:background .2s}
+.btn:hover{background:#000}
+.btn.light{background:var(--tile);color:var(--ink);border:1px solid var(--line)}
+.btn.light:hover{background:#fff}
+.btn.onaccent{background:#fff;color:var(--accent)}
+.btn.onaccent:hover{background:#FFE3D8}
+.row{display:flex;gap:.7rem;flex-wrap:wrap}
+
+.icon{width:44px;height:44px;border-radius:14px;background:var(--bg);display:grid;place-items:center;color:var(--accent)}
+.dark .icon{background:#383B40}
+.icon svg{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+
+.hero-copy{justify-content:center}
+.lead{font-size:1.2rem}
+.status{display:flex;align-items:center;gap:.6rem;font-weight:600}
+.status i{width:12px;height:12px;border-radius:50%;background:#8A8D94}
+.status.open i{background:#2E9B5F;box-shadow:0 0 0 5px rgba(46,155,95,.2)}
+.hours{list-style:none;display:grid;gap:.35rem;font-size:.98rem;color:var(--muted)}
+.hours li{display:flex;justify-content:space-between;gap:1rem}
+.hours b{color:var(--ink);font-weight:600}
+.dark .hours b{color:#fff}
+.dark .hours{color:#B9BBC1}
+.art{align-items:center;justify-content:center;color:#E9E9EB}
+.art svg{width:min(210px,100%);height:auto}
+.checks{list-style:none;display:grid;gap:.5rem}
+.checks li{display:flex;gap:.6rem;align-items:flex-start;color:var(--muted)}
+.checks li::before{content:"";flex:none;width:18px;height:18px;margin-top:.28rem;border-radius:6px;background:var(--accent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center/12px no-repeat}
+.dark .checks li{color:#C8CACF}
+.tags{list-style:none;display:flex;flex-wrap:wrap;gap:.6rem}
+.tags li{padding:.45rem 1rem;border-radius:99px;background:var(--tile);border:1px solid var(--line);font-weight:600;font-size:.95rem}
+.steps{list-style:none;counter-reset:s}
+.steps li{counter-increment:s}
+.steps li::before{content:counter(s);font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:1.6rem;color:var(--accent)}
+.steps strong{display:block;font-size:1.1rem}
+.steps span{color:var(--muted);font-size:.98rem}
+
+/* Forms */
+label{display:block;font-weight:600;font-size:.95rem;margin-bottom:.35rem}
+input,select,textarea{width:100%;font:inherit;color:var(--ink);padding:.85rem 1rem;border-radius:14px;border:1px solid rgba(27,28,31,.2);background:#fff}
+textarea{min-height:120px;resize:vertical}
+.field{display:grid}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
+.msg{display:none;padding:.9rem 1.1rem;border-radius:14px;background:var(--bg);font-weight:600}
+.msg.show{display:block}
+.msg.err{color:#9B2C2C}
+.msg.ok{color:#1F6B42}
+
+footer{padding:1rem 0 2.2rem;color:var(--muted);font-size:.95rem}
+footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+
+@media (max-width:900px){
+  .s3,.s4,.s5{grid-column:span 6}
+  .s6,.s7,.s8{grid-column:span 12}
+  .r2{grid-row:auto}
+}
+/* Menú hamburguesa: solo en móvil */
+@media (max-width:820px){
+  .burger{display:grid}
+  #menu{
+    position:absolute;top:calc(100% + .5rem);left:0;right:0;background:var(--tile);border:1px solid var(--line);border-radius:22px;padding:.6rem;
+    display:none;box-shadow:0 18px 40px rgba(0,0,0,.14);
+  }
+  #menu.open{display:block;animation:drop .22s ease-out}
+  #menu ul{flex-direction:column;align-items:stretch}
+  #menu a{padding:.9rem 1.1rem;border-radius:14px}
+  #menu a.cta{text-align:center;margin-top:.3rem}
+}
+@keyframes drop{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+@media (max-width:560px){
+  .s3,.s4,.s5{grid-column:span 12}
+  .two{grid-template-columns:1fr}
+  .tile{padding:1.4rem}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  #menu.open{animation:none}
+  *{transition:none !important}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="#/inicio" aria-label="Taller Torque, ir al inicio">
+      <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="16" cy="16" r="12"/><circle cx="16" cy="16" r="4"/><path d="M16 4v8M16 20v8M4 16h8M20 16h8"/></svg>
+      Taller Torque
+    </a>
+    <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu"><span></span></button>
+    <nav id="menu" aria-label="Principal">
+      <ul>
+        <li><a href="#/inicio">Inicio</a></li>
+        <li><a href="#/servicios">Servicios</a></li>
+        <li><a href="#/nosotros">Nosotros</a></li>
+        <li><a href="#/contacto">Contacto</a></li>
+        <li><a class="cta" href="#/contacto">Agendar cita</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="contenido" class="wrap">
+
+  <!-- INICIO -->
+  <section class="page" data-page="inicio" data-title="Inicio">
+    <div class="bento">
+      <div class="tile s8 r2 hero-copy">
+        <h1 tabindex="-1">Revisamos primero. Reparamos solo lo necesario.</h1>
+        <p class="lead">Taller mecánico con diagnóstico claro, presupuesto aprobado por ti antes de tocar el auto y garantía por escrito.</p>
+        <div class="row push">
+          <a class="btn" href="#/contacto">Agendar cita</a>
+          <a class="btn light" href="#/servicios">Ver servicios</a>
+        </div>
+      </div>
+      <div class="tile s4 dark">
+        <div class="status" id="status"><i aria-hidden="true"></i><span id="statusText">Consultando horario…</span></div>
+        <ul class="hours">
+          <li><span>Lunes a viernes</span><b>8:00 – 18:00</b></li>
+          <li><span>Sábado</span><b>8:00 – 13:00</b></li>
+          <li><span>Domingo</span><b>Cerrado</b></li>
+        </ul>
+      </div>
+      <div class="tile s4 dark art" aria-hidden="true">
+        <svg viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><circle cx="100" cy="100" r="86"/><circle cx="100" cy="100" r="62" stroke-opacity=".5"/><circle cx="100" cy="100" r="16"/><path d="M100 84V38M100 162v-46M84 100H38M162 100h-46M89 89L56 56M144 144l-33-33M111 89l33-33M56 144l33-33" stroke-opacity=".85"/><circle cx="100" cy="30" r="4" fill="#C93F14" stroke="none"/></svg>
+      </div>
+    </div>
+
+    <div class="bento">
+      <div class="tile s4">
+        <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 3h6M12 3v4M5 21V11a7 7 0 0114 0v10z"/></svg></div>
+        <h3>Presupuesto antes de reparar</h3>
+        <p>Te explicamos qué falla, qué piezas se necesitan y cuánto cuesta. Tú decides.</p>
+      </div>
+      <div class="tile s4">
+        <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M8.5 12l2.5 2.5L15.5 10"/></svg></div>
+        <h3>Garantía por escrito</h3>
+        <p>Cada trabajo sale con garantía en mano, con fecha y kilometraje.</p>
+      </div>
+      <div class="tile s4">
+        <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></div>
+        <h3>Piezas con factura</h3>
+        <p>Usamos repuestos de calidad y te entregamos el comprobante de cada uno.</p>
+      </div>
+    </div>
+
+    <div class="bento">
+      <div class="tile s8">
+        <h2>Lo que hacemos</h2>
+        <div class="row">
+          <a class="btn light" href="#/servicios">Mantenimiento</a>
+          <a class="btn light" href="#/servicios">Frenos</a>
+          <a class="btn light" href="#/servicios">Suspensión y dirección</a>
+          <a class="btn light" href="#/servicios">Motor y afinación</a>
+          <a class="btn light" href="#/servicios">Diagnóstico electrónico</a>
+          <a class="btn light" href="#/servicios">Aire acondicionado</a>
+        </div>
+      </div>
+      <div class="tile s4 accent">
+        <h3>¿Algo suena raro?</h3>
+        <p>Cuéntanos el síntoma y te damos cita esta semana.</p>
+        <a class="btn onaccent push" href="#/contacto">Agendar cita</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section class="page" data-page="servicios" data-title="Servicios">
+    <div class="bento">
+      <div class="tile s12"><h1 tabindex="-1">Servicios</h1><p class="lead">Del cambio de aceite a una reparación de motor. Todos los trabajos incluyen diagnóstico y presupuesto previo.</p></div>
+    </div>
+    <div class="bento">
+      <div class="tile s6 r2 dark">
+        <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14.5 6.5a4 4 0 01-5 5L4 17l3 3 5.5-5.5a4 4 0 005-5l-2.5 2.5-2-2z"/></svg></div>
+        <h3>Mantenimiento preventivo</h3>
+        <p>Evita averías mayores con revisiones según el kilometraje de tu auto.</p>
+        <ul class="checks">
+          <li>Aceite y filtros</li>
+          <li>Niveles y mangueras</li>
+          <li>Batería y sistema de carga</li>
+          <li>Revisión de luces y llantas</li>
+          <li>Reporte escrito del estado general</li>
+        </ul>
+      </div>
+      <div class="tile s6"><div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg></div><h3>Frenos</h3><p>Pastillas, discos, balatas, líquido y revisión del sistema completo.</p></div>
+      <div class="tile s6"><div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 4c4 2-4 4 0 6s-4 4 0 6-4 4 0 4M18 4c-4 2 4 4 0 6s4 4 0 6 4 4 0 4"/></svg></div><h3>Suspensión y dirección</h3><p>Amortiguadores, rótulas, terminales, alineación y balanceo.</p></div>
+      <div class="tile s4"><div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 10h3l2-3h6l2 3h4v6h-2M3 10v6h2M7 16h8"/></svg></div><h3>Motor y afinación</h3><p>Bujías, bandas, sensores y reparación de motor.</p></div>
+      <div class="tile s4"><div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="12" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div><h3>Diagnóstico electrónico</h3><p>Lectura de códigos y pruebas para ubicar fallas con precisión.</p></div>
+      <div class="tile s4"><div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3v18M5 7l14 10M19 7L5 17"/></svg></div><h3>Aire acondicionado</h3><p>Carga de gas, fugas y limpieza del sistema.</p></div>
+    </div>
+    <div class="bento">
+      <div class="tile s12">
+        <h2>Cómo trabajamos</h2>
+        <ol class="steps bento" style="margin-top:.4rem">
+          <li class="s3"><strong>Recepción y diagnóstico</strong><span>Escuchamos el síntoma y revisamos el auto.</span></li>
+          <li class="s3"><strong>Presupuesto</strong><span>Te mostramos el detalle y esperas a aprobar.</span></li>
+          <li class="s3"><strong>Reparación</strong><span>Trabajamos y te avisamos si hay cambios.</span></li>
+          <li class="s3"><strong>Entrega y garantía</strong><span>Probamos el auto y te damos la garantía.</span></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- NOSOTROS -->
+  <section class="page" data-page="nosotros" data-title="Nosotros">
+    <div class="bento">
+      <div class="tile s7">
+        <h1 tabindex="-1">Un taller donde te explican lo que pasa.</h1>
+        <p class="lead">Somos un equipo de mecánicos que prefiere mostrarte la pieza dañada antes que pedirte confianza ciega.</p>
+        <p>Atendemos autos particulares y flotillas pequeñas. Trabajamos con herramienta de diagnóstico actualizada y registramos cada servicio para que sepas cuándo toca el siguiente.</p>
+      </div>
+      <div class="tile s5 dark">
+        <h3>Nuestros compromisos</h3>
+        <ul class="checks">
+          <li>Presupuesto aprobado antes de empezar</li>
+          <li>Te devolvemos las piezas cambiadas si las pides</li>
+          <li>Fecha de entrega acordada y respetada</li>
+          <li>Garantía escrita en cada trabajo</li>
+        </ul>
+      </div>
+    </div>
+    <div class="bento">
+      <div class="tile s12 flat"><h3>Qué revisamos en cada ingreso</h3>
+        <ul class="tags">
+          <li>Frenos</li><li>Luces</li><li>Niveles</li><li>Llantas</li><li>Batería</li><li>Fugas</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section class="page" data-page="contacto" data-title="Contacto">
+    <div class="bento">
+      <div class="tile s7">
+        <h1 tabindex="-1">Agenda tu cita</h1>
+        <form id="form" novalidate style="display:grid;gap:.9rem">
+          <div class="two">
+            <div class="field"><label for="nombre">Nombre</label><input id="nombre" autocomplete="name" required></div>
+            <div class="field"><label for="tel">Teléfono</label><input id="tel" type="tel" autocomplete="tel" required></div>
+          </div>
+          <div class="two">
+            <div class="field"><label for="auto">Marca y modelo</label><input id="auto" placeholder="Ej. Nissan Versa 2018"></div>
+            <div class="field"><label for="servicio">Servicio</label>
+              <select id="servicio"><option>Mantenimiento</option><option>Frenos</option><option>Suspensión y dirección</option><option>Motor y afinación</option><option>Diagnóstico electrónico</option><option>Aire acondicionado</option><option>No sé qué tiene</option></select>
+            </div>
+          </div>
+          <div class="field"><label for="detalle">¿Qué notas en el auto?</label><textarea id="detalle" placeholder="Ruidos, luces encendidas, vibraciones…"></textarea></div>
+          <div><button class="btn" type="submit">Solicitar cita</button></div>
+          <p class="msg" id="msg" role="status"></p>
+        </form>
+      </div>
+      <div class="tile s5 dark">
+        <h3>Visítanos</h3>
+        <p>Calle Principal 123, Colonia Centro</p>
+        <p>Tel. (000) 000-0000</p>
+        <ul class="hours" style="margin-top:.6rem">
+          <li><span>Lunes a viernes</span><b>8:00 – 18:00</b></li>
+          <li><span>Sábado</span><b>8:00 – 13:00</b></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap"><span>© <span id="year"></span> Taller Torque</span><span>Mecánica automotriz</span></div>
+</footer>
+
+<script>
+(function(){
+  const pages=[...document.querySelectorAll('.page')];
+  const links=[...document.querySelectorAll('#menu a:not(.cta)')];
+  const names=pages.map(p=>p.dataset.page);
+  const burger=document.getElementById('burger');
+  const menu=document.getElementById('menu');
+  let first=true;
+
+  function setMenu(open){
+    menu.classList.toggle('open',open);
+    burger.setAttribute('aria-expanded',open);
+    burger.setAttribute('aria-label',open?'Cerrar menú':'Abrir menú');
+  }
+  burger.addEventListener('click',()=>setMenu(!menu.classList.contains('open')));
+  menu.addEventListener('click',e=>{ if(e.target.closest('a')) setMenu(false); });
+  document.addEventListener('keydown',e=>{ if(e.key==='Escape'&&menu.classList.contains('open')){setMenu(false);burger.focus();} });
+  matchMedia('(min-width:821px)').addEventListener('change',e=>{ if(e.matches) setMenu(false); });
+
+  function route(){
+    let key=location.hash.replace(/^#\/?/,'')||'inicio';
+    if(!names.includes(key)) key='inicio';
+    pages.forEach(p=>p.classList.toggle('active',p.dataset.page===key));
+    links.forEach(a=>a.getAttribute('href')==='#/'+key?a.setAttribute('aria-current','page'):a.removeAttribute('aria-current'));
+    const page=pages.find(p=>p.dataset.page===key);
+    document.title=page.dataset.title+' · Taller Torque';
+    window.scrollTo(0,0);
+    if(!first){const h=page.querySelector('h1');if(h)h.focus({preventScroll:true});}
+    first=false;
+  }
+  window.addEventListener('hashchange',route);
+  route();
+
+  // Horario en vivo
+  function openNow(){
+    const d=new Date(),day=d.getDay(),h=d.getHours()+d.getMinutes()/60;
+    if(day>=1&&day<=5) return h>=8&&h<18;
+    if(day===6) return h>=8&&h<13;
+    return false;
+  }
+  const st=document.getElementById('status'),stt=document.getElementById('statusText');
+  const isOpen=openNow();
+  st.classList.toggle('open',isOpen);
+  stt.textContent=isOpen?'Abierto ahora':'Cerrado ahora';
+
+  document.getElementById('year').textContent=new Date().getFullYear();
+
+  const form=document.getElementById('form'),msg=document.getElementById('msg');
+  form.addEventListener('submit',e=>{
+    e.preventDefault();
+    const miss=['nombre','tel'].filter(id=>!document.getElementById(id).value.trim());
+    msg.className='msg show';
+    if(miss.length){
+      msg.classList.add('err');
+      msg.textContent='Escribe tu nombre y teléfono para solicitar la cita.';
+      document.getElementById(miss[0]).focus();return;
+    }
+    msg.classList.add('ok');
+    msg.textContent='Solicitud enviada. Te llamaremos para confirmar el horario.';
+    form.reset();
+  });
+})();
+</script>
+</body>
+</html>

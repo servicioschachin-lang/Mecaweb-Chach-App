@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Atelier Mecánico | Landing Minimalismo</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<style>
+  body{font-family:'DM Sans',sans-serif;background:#fff;color:#1b1b1b}
+  .serif{font-family:'DM Serif Display',serif;font-weight:400}
+  .line{border-color:#e6e6e6}
+  .btn{display:inline-block;padding:.85rem 1.8rem;font-weight:500;border:1px solid #1b1b1b;transition:.2s}
+  .btn-k{background:#1b1b1b;color:#fff}.btn-k:hover{background:#c8372d;border-color:#c8372d}
+  .btn-o:hover{background:#1b1b1b;color:#fff}
+  input,textarea,select{width:100%;border:0;border-bottom:1px solid #1b1b1b;padding:.8rem 0;background:transparent;outline:none;border-radius:0}
+  input:focus,textarea:focus,select:focus{border-color:#c8372d}
+  a:focus-visible,button:focus-visible{outline:2px solid #c8372d;outline-offset:3px}
+  .hero-bg{background:linear-gradient(rgba(255,255,255,.2),rgba(255,255,255,.2)),url('https://images.unsplash.com/photo-1487754180451-c456f719a1fc?auto=format&fit=crop&w=1800&q=60') center/cover #d9d9d9;filter:grayscale(1)}
+</style>
+</head>
+<body>
+
+<header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b line">
+  <nav class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+    <a href="#inicio" class="serif text-2xl">Atelier Mecánico</a>
+    <ul class="hidden md:flex gap-10 text-sm">
+      <li><a class="hover:text-[#c8372d]" href="#servicios">Servicios</a></li>
+      <li><a class="hover:text-[#c8372d]" href="#vehiculos">Vehículos</a></li>
+      <li><a class="hover:text-[#c8372d]" href="#taller">Taller</a></li>
+      <li><a class="hover:text-[#c8372d]" href="#contacto">Contacto</a></li>
+    </ul>
+    <button id="burger" class="md:hidden text-3xl" aria-label="Abrir menú" aria-expanded="false"><i class="bi bi-list"></i></button>
+  </nav>
+  <div id="mobile" class="hidden md:hidden border-t line bg-white">
+    <ul class="px-6 py-4 grid gap-4">
+      <li><a href="#servicios">Servicios</a></li><li><a href="#vehiculos">Vehículos</a></li><li><a href="#taller">Taller</a></li><li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </div>
+</header>
+
+<section id="inicio" class="max-w-6xl mx-auto px-6 pt-16 pb-10 sm:pt-24">
+  <h1 class="serif text-5xl sm:text-7xl leading-[1.02] max-w-3xl">Mecánica para autos, motos y lo que viene después.</h1>
+  <p class="mt-8 text-lg text-neutral-600 max-w-xl">Un taller pequeño, ordenado y honesto. Trabajamos con pocos vehículos a la vez para hacerlo bien.</p>
+  <div class="mt-10 flex flex-wrap gap-4"><a class="btn btn-k" href="#contacto">Reservar cita</a><a class="btn btn-o" href="#servicios">Ver servicios</a></div>
+</section>
+
+<div class="hero-bg h-64 sm:h-[26rem] mt-8" role="img" aria-label="Interior de un taller mecánico"></div>
+
+<section id="servicios" class="max-w-6xl mx-auto px-6 py-24">
+  <div class="grid md:grid-cols-3 gap-12">
+    <h2 class="serif text-4xl md:col-span-1">Servicios</h2>
+    <div class="md:col-span-2 divide-y line border-y line">
+      <div class="py-6 flex justify-between gap-6"><div><h3 class="font-medium text-lg">Mantenimiento periódico</h3><p class="text-neutral-600 text-sm mt-1">Aceite, filtros, líquidos y revisión general.</p></div><span class="text-sm text-neutral-500 whitespace-nowrap">Autos y motos</span></div>
+      <div class="py-6 flex justify-between gap-6"><div><h3 class="font-medium text-lg">Frenos y suspensión</h3><p class="text-neutral-600 text-sm mt-1">Pastillas, discos, amortiguadores y alineación.</p></div><span class="text-sm text-neutral-500 whitespace-nowrap">Autos y motos</span></div>
+      <div class="py-6 flex justify-between gap-6"><div><h3 class="font-medium text-lg">Diagnóstico electrónico</h3><p class="text-neutral-600 text-sm mt-1">Lectura de fallas y pruebas de sensores.</p></div><span class="text-sm text-neutral-500 whitespace-nowrap">Autos</span></div>
+      <div class="py-6 flex justify-between gap-6"><div><h3 class="font-medium text-lg">Kit de arrastre y cadena</h3><p class="text-neutral-600 text-sm mt-1">Reemplazo, ajuste y lubricación.</p></div><span class="text-sm text-neutral-500 whitespace-nowrap">Motos</span></div>
+      <div class="py-6 flex justify-between gap-6"><div><h3 class="font-medium text-lg">Sistema eléctrico</h3><p class="text-neutral-600 text-sm mt-1">Baterías, alternadores, luces y cableado.</p></div><span class="text-sm text-neutral-500 whitespace-nowrap">Autos y motos</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="vehiculos" class="bg-neutral-50 border-y line">
+  <div class="max-w-6xl mx-auto px-6 py-24 grid md:grid-cols-2 gap-6">
+    <article class="bg-white border line">
+      <div class="h-64 bg-neutral-200 bg-cover bg-center grayscale" style="background-image:url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1000&q=60')"></div>
+      <div class="p-8"><h3 class="serif text-3xl">Automóviles</h3><p class="mt-3 text-neutral-600">Sedanes, SUV, camionetas y eléctricos con mantenimiento básico.</p></div>
+    </article>
+    <article class="bg-white border line">
+      <div class="h-64 bg-neutral-200 bg-cover bg-center grayscale" style="background-image:url('https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=1000&q=60')"></div>
+      <div class="p-8"><h3 class="serif text-3xl">Motocicletas</h3><p class="mt-3 text-neutral-600">Calle, deportivas, scooters y motos de trabajo de todas las cilindradas.</p></div>
+    </article>
+  </div>
+</section>
+
+<section id="taller" class="max-w-6xl mx-auto px-6 py-24 grid md:grid-cols-3 gap-12">
+  <h2 class="serif text-4xl">Cómo trabajamos</h2>
+  <ul class="md:col-span-2 grid sm:grid-cols-2 gap-x-12 gap-y-10">
+    <li><h3 class="font-medium">Diagnóstico primero</h3><p class="text-neutral-600 text-sm mt-2">Nada se repara sin entender la causa.</p></li>
+    <li><h3 class="font-medium">Precio antes del trabajo</h3><p class="text-neutral-600 text-sm mt-2">Recibes el presupuesto por escrito.</p></li>
+    <li><h3 class="font-medium">Piezas visibles</h3><p class="text-neutral-600 text-sm mt-2">Te mostramos lo que cambiamos.</p></li>
+    <li><h3 class="font-medium">Garantía clara</h3><p class="text-neutral-600 text-sm mt-2">Seis meses en mano de obra.</p></li>
+  </ul>
+</section>
+
+<section id="contacto" class="border-t line">
+  <div class="max-w-6xl mx-auto px-6 py-24 grid md:grid-cols-2 gap-16">
+    <div>
+      <h2 class="serif text-5xl">Reserva una cita</h2>
+      <p class="mt-6 text-neutral-600">Calle Taller 12, Ciudad<br>Lunes a sábado, 8:00 a 18:00<br>+000 0000 0000 · hola@atelier.com</p>
+      <div class="mt-8 flex gap-5 text-xl">
+        <a href="#" aria-label="Facebook" class="hover:text-[#c8372d]"><i class="bi bi-facebook"></i></a>
+        <a href="#" aria-label="Instagram" class="hover:text-[#c8372d]"><i class="bi bi-instagram"></i></a>
+        <a href="#" aria-label="LinkedIn" class="hover:text-[#c8372d]"><i class="bi bi-linkedin"></i></a>
+        <a href="#" aria-label="WhatsApp" class="hover:text-[#c8372d]"><i class="bi bi-whatsapp"></i></a>
+      </div>
+    </div>
+    <form class="grid gap-6" onsubmit="event.preventDefault();alert('Gracias, te contactaremos pronto.')">
+      <input placeholder="Nombre" required><input type="tel" placeholder="Teléfono" required>
+      <select><option>Automóvil</option><option>Motocicleta</option></select>
+      <textarea rows="3" placeholder="Cuéntanos qué necesita tu vehículo"></textarea>
+      <button class="btn btn-k justify-self-start">Enviar solicitud</button>
+    </form>
+  </div>
+</section>
+
+<footer class="border-t line py-8 text-center text-sm text-neutral-500">© 2026 Atelier Mecánico</footer>
+
+<script>
+  const b=document.getElementById('burger'),m=document.getElementById('mobile');
+  b.addEventListener('click',()=>{const o=m.classList.toggle('hidden');b.setAttribute('aria-expanded',String(!o));b.innerHTML=o?'<i class="bi bi-list"></i>':'<i class="bi bi-x-lg"></i>'});
+  m.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{m.classList.add('hidden');b.innerHTML='<i class="bi bi-list"></i>'}));
+  document.documentElement.style.scrollBehavior='smooth';
+</script>
+</body>
+</html>
